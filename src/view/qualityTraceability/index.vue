@@ -1,5 +1,5 @@
 <template>
-  <div>质量溯源</div>
+  <div class="wrapper">质量溯源</div>
 </template>
 
 <script>

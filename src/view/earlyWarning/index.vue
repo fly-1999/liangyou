@@ -1,5 +1,5 @@
 <template>
-  <div>预警防控</div>
+  <div class="wrapper">预警防控</div>
 </template>
 
 <script>

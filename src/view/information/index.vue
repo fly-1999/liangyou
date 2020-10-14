@@ -1,5 +1,5 @@
 <template>
-  <div>信息采集</div>
+  <div class="wrapper">信息采集</div>
 </template>
 
 <script>

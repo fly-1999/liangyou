@@ -1,5 +1,5 @@
 <template>
-  <div>综合服务</div>
+  <div class="wrapper">综合服务</div>
 </template>
 
 <script>
