@@ -22,13 +22,118 @@ export default [
     children: [
       {
         path: '/home',
-        name: '首页',
+        name: '主页',
         meta: {
-          title: '首页',
+          title: '主页',
           notCache: true,
           icon: 'md-home'
         },
         component: () => import('@/view/home')
+      }
+    ]
+  },
+  {
+    path: '/information',
+    name: 'information',
+    component: Main,
+    meta: {
+      hideInMenu: false,
+      notCache: true
+    },
+    children: [
+      {
+        path: '/information',
+        name: '信息采集',
+        meta: {
+          title: '信息采集',
+          notCache: true,
+          icon: 'md-home'
+        },
+        component: () => import('@/view/information')
+      }
+    ]
+  },
+  {
+    path: '/earlyWarning',
+    name: 'earlyWarning',
+    component: Main,
+    meta: {
+      hideInMenu: false,
+      notCache: true
+    },
+    children: [
+      {
+        path: '/earlyWarning',
+        name: '预警防控',
+        meta: {
+          title: '预警防控',
+          notCache: true,
+          icon: 'md-home'
+        },
+        component: () => import('@/view/earlyWarning')
+      }
+    ]
+  },
+  {
+    path: '/qualityTraceability',
+    name: 'qualityTraceability',
+    component: Main,
+    meta: {
+      hideInMenu: false,
+      notCache: true
+    },
+    children: [
+      {
+        path: '/qualityTraceability',
+        name: '质量溯源',
+        meta: {
+          title: '质量溯源',
+          notCache: true,
+          icon: 'md-home'
+        },
+        component: () => import('@/view/qualityTraceability')
+      }
+    ]
+  },
+  {
+    path: '/service',
+    name: 'service',
+    component: Main,
+    meta: {
+      hideInMenu: false,
+      notCache: true
+    },
+    children: [
+      {
+        path: '/service',
+        name: '综合服务',
+        meta: {
+          title: '综合服务',
+          notCache: true,
+          icon: 'md-home'
+        },
+        component: () => import('@/view/service')
+      }
+    ]
+  },
+  {
+    path: '/setting',
+    name: 'setting',
+    component: Main,
+    meta: {
+      hideInMenu: false,
+      notCache: true
+    },
+    children: [
+      {
+        path: '/setting',
+        name: '系统设置',
+        meta: {
+          title: '系统设置啥啥啥',
+          notCache: true,
+          icon: 'md-home'
+        },
+        component: () => import('@/view/setting')
       }
     ]
   },
