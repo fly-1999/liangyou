@@ -13,6 +13,8 @@
     background: #fff;
     padding: 0 20px 0 51px;
     width: 100%;
+    height: 80px;
+    line-height: 80px;
   }
   .main-layout-con{
     height: 100%;
@@ -34,8 +36,16 @@
   }
   .left-sider{
     .ivu-layout-sider-children{
+      width: 100%;
       overflow-y: scroll;
       margin-right: -18px;
+    }
+    /deep/.ivu-menu-item{
+      text-align: center;
+    }
+    /deep/.ivu-menu-dark.ivu-menu-vertical .ivu-menu-item-active:not(.ivu-menu-submenu), .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu-title-active:not(.ivu-menu-submenu){
+      color:#fff;
+      background: rgba(255,255,255, .32);
     }
   }
 }

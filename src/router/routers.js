@@ -1,5 +1,10 @@
 import Main from '@/components/main'
-
+import homePng from '@/assets/icons/home.png'
+import xxcj from '@/assets/icons/xxcj.png'
+import yjpg from '@/assets/icons/yjpg.png'
+import zlsy from '@/assets/icons/zlsy.png'
+import zhfw from '@/assets/icons/zhfw.png'
+import xtsz from '@/assets/icons/xtsz.png'
 export default [
   {
     path: '/login',
@@ -17,7 +22,8 @@ export default [
     component: Main,
     meta: {
       hideInMenu: false,
-      notCache: true
+      notCache: true,
+      icon: homePng
     },
     children: [
       {
@@ -26,7 +32,6 @@ export default [
         meta: {
           title: '主页',
           notCache: true,
-          icon: 'md-home'
         },
         component: () => import('@/view/home')
       }
@@ -38,7 +43,8 @@ export default [
     component: Main,
     meta: {
       hideInMenu: false,
-      notCache: true
+      notCache: true,
+      icon: xxcj
     },
     children: [
       {
@@ -47,7 +53,6 @@ export default [
         meta: {
           title: '信息采集',
           notCache: true,
-          icon: 'md-home'
         },
         component: () => import('@/view/information')
       }
@@ -59,7 +64,8 @@ export default [
     component: Main,
     meta: {
       hideInMenu: false,
-      notCache: true
+      notCache: true,
+      icon: yjpg
     },
     children: [
       {
@@ -68,7 +74,6 @@ export default [
         meta: {
           title: '预警防控',
           notCache: true,
-          icon: 'md-home'
         },
         component: () => import('@/view/earlyWarning')
       }
@@ -80,7 +85,8 @@ export default [
     component: Main,
     meta: {
       hideInMenu: false,
-      notCache: true
+      notCache: true,
+      icon: zlsy
     },
     children: [
       {
@@ -89,7 +95,6 @@ export default [
         meta: {
           title: '质量溯源',
           notCache: true,
-          icon: 'md-home'
         },
         component: () => import('@/view/qualityTraceability')
       }
@@ -101,7 +106,8 @@ export default [
     component: Main,
     meta: {
       hideInMenu: false,
-      notCache: true
+      notCache: true,
+      icon: zhfw
     },
     children: [
       {
@@ -110,7 +116,6 @@ export default [
         meta: {
           title: '综合服务',
           notCache: true,
-          icon: 'md-home'
         },
         component: () => import('@/view/service')
       }
@@ -122,16 +127,16 @@ export default [
     component: Main,
     meta: {
       hideInMenu: false,
-      notCache: true
+      notCache: true,
+      icon: xtsz
     },
     children: [
       {
         path: '/setting',
         name: '系统设置',
         meta: {
-          title: '系统设置啥啥啥',
+          title: '系统设置',
           notCache: true,
-          icon: 'md-home'
         },
         component: () => import('@/view/setting')
       }

@@ -181,35 +181,7 @@ export const canTurnTo = (name, access, routes) => {
   return routePermissionJudge(routes)
 }
 
-/**
- * @param {String} url
- * @description 从URL中解析参数
- */
-export const getParams = url => {
-  const keyValueArr = url.split('?')[1].split('&')
-  let paramObj = {}
-  keyValueArr.forEach(item => {
-    const keyValue = item.split('=')
-    paramObj[keyValue[0]] = keyValue[1]
-  })
-  return paramObj
-}
 
-/**
- * @param {Array} list 标签列表
- * @param {String} name 当前关闭的标签的name
- */
-export const getNextRoute = (list, route) => {
-  let res = {}
-  if (list.length === 2) {
-    res = getHomeRoute(list)
-  } else {
-    const index = list.findIndex(item => routeEqual(item, route))
-    if (index === list.length - 1) res = list[list.length - 2]
-    else res = list[index + 1]
-  }
-  return res
-}
 
 /**
  * @param {Number} times 回调函数需要执行的次数

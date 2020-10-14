@@ -1,14 +1,3 @@
-import {
-  login,
-  logout,
-  getUserInfo,
-  getMessage,
-  getContentByMsgId,
-  hasRead,
-  removeReaded,
-  restoreTrash,
-  getUnreadCount
-} from '@/api/user'
 import { setToken, getToken } from '@/libs/util'
 
 export default {
@@ -26,41 +15,41 @@ export default {
     messageContentStore: {}
   },
   mutations: {
-    setAvatar (state, avatarPath) {
+    setAvatar(state, avatarPath) {
       state.avatarImgPath = avatarPath
     },
-    setUserId (state, id) {
+    setUserId(state, id) {
       state.userId = id
     },
-    setUserName (state, name) {
+    setUserName(state, name) {
       state.userName = name
     },
-    setAccess (state, access) {
+    setAccess(state, access) {
       state.access = access
     },
-    setToken (state, token) {
+    setToken(state, token) {
       state.token = token
       setToken(token)
     },
-    setHasGetInfo (state, status) {
+    setHasGetInfo(state, status) {
       state.hasGetInfo = status
     },
-    setMessageCount (state, count) {
+    setMessageCount(state, count) {
       state.unreadCount = count
     },
-    setMessageUnreadList (state, list) {
+    setMessageUnreadList(state, list) {
       state.messageUnreadList = list
     },
-    setMessageReadedList (state, list) {
+    setMessageReadedList(state, list) {
       state.messageReadedList = list
     },
-    setMessageTrashList (state, list) {
+    setMessageTrashList(state, list) {
       state.messageTrashList = list
     },
-    updateMessageContentStore (state, { msg_id, content }) {
+    updateMessageContentStore(state, { msg_id, content }) {
       state.messageContentStore[msg_id] = content
     },
-    moveMsg (state, { from, to, msg_id }) {
+    moveMsg(state, { from, to, msg_id }) {
       const index = state[from].findIndex(_ => _.msg_id === msg_id)
       const msgItem = state[from].splice(index, 1)[0]
       msgItem.loading = false
@@ -72,73 +61,5 @@ export default {
     messageReadedCount: state => state.messageReadedList.length,
     messageTrashCount: state => state.messageTrashList.length
   },
-  actions: {
-    // 登录
-    handleLogin ({ commit }, { userName, password }) {
-      userName = userName.trim()
-      return new Promise((resolve, reject) => {
-        login({
-          userName,
-          password
-        }).then(res => {
-          const data = res.data
-          commit('setToken', data.token)
-          resolve()
-        }).catch(err => {
-          reject(err)
-        })
-      })
-    },
-    // 退出登录
-    handleLogOut ({ state, commit }) {
-      return new Promise((resolve, reject) => {
-        logout(state.token).then(() => {
-          commit('setToken', '')
-          commit('setAccess', [])
-          resolve()
-        }).catch(err => {
-          reject(err)
-        })
-        // 如果你的退出登录无需请求接口，则可以直接使用下面三行代码而无需使用logout调用接口
-        // commit('setToken', '')
-        // commit('setAccess', [])
-        // resolve()
-      })
-    },
-    // 获取用户相关信息
-    getUserInfo ({ state, commit }) {
-      return new Promise((resolve, reject) => {
-        try {
-          getUserInfo(state.token).then(res => {
-            const data = res.data
-            commit('setAvatar', data.avatar)
-            commit('setUserName', data.name)
-            commit('setUserId', data.user_id)
-            commit('setAccess', data.access)
-            commit('setHasGetInfo', true)
-            resolve(data)
-          }).catch(err => {
-            reject(err)
-          })
-        } catch (error) {
-          reject(error)
-        }
-      })
-    },
-    // 根据当前点击的消息的id获取内容
-    getContentByMsgId ({ state, commit }, { msg_id }) {
-      return new Promise((resolve, reject) => {
-        let contentItem = state.messageContentStore[msg_id]
-        if (contentItem) {
-          resolve(contentItem)
-        } else {
-          getContentByMsgId(msg_id).then(res => {
-            const content = res.data
-            commit('updateMessageContentStore', { msg_id, content })
-            resolve(content)
-          })
-        }
-      })
-    }
-  }
+  actions: {}
 }

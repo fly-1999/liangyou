@@ -20,14 +20,13 @@ const router = new Router({
 //   else next({ replace: true, name: 'error_401' }) // 无权限，重定向到401页面
 // }
 const originalPush = Router.prototype.push
-Router.prototype.push = function push (location) {
+Router.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start()
   var token = getToken()
-  console.log(token)
   next()
   // if (!token && to.name !== LOGIN_PAGE_NAME) {
   //   // 未登录且要跳转的页面不是登录页
