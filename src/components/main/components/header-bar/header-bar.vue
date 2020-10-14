@@ -29,9 +29,6 @@ export default {
       return this.$store.state.app.breadCrumbList
     }
   },
-  created () {
-    console.log(this.$route.meta.title)
-  },
   methods: {
     handleCollpasedChange (state) {
       this.$emit('on-coll-change', state)

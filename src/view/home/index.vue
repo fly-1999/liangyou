@@ -3,12 +3,12 @@
 </template>
 <script>
 export default {
-    name: "Main",
-    data() {
-        return {};
-    },
-    methods: {}
-};
+  name: 'Main',
+  data () {
+    return {}
+  },
+  methods: {}
+}
 </script>
 <style lang="less" scoped>
 @import "./index.less";

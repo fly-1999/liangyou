@@ -1,6 +1,5 @@
 import Main from '@/components/main'
 
-
 export default [
   {
     path: '/login',
@@ -23,7 +22,7 @@ export default [
     children: [
       {
         path: '/home',
-        name: 'home',
+        name: '首页',
         meta: {
           title: '首页',
           notCache: true,
