@@ -57,7 +57,18 @@ export default {
     }
   },
   methods: {
+
+    getRoles() {
+      this.$api.login.getRoles().then((res) => {
+        console.log(res,'getRoles()getRoles()')
+      });
+    },
+
     handleSubmit () {
+      console.log('aaaaaa');
+     this.getRoles()
+
+
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
           this.$emit('on-success-valid', {

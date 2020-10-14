@@ -14,12 +14,17 @@ import './index.less'
 import TreeTable from 'tree-table-vue'
 import VOrgTree from 'v-org-tree'
 import 'v-org-tree/dist/v-org-tree.css'
+import axios from 'axios'
+import api from './api'	// 导入api接口
+
 
 Vue.use(iView, {
   i18n: (key, value) => i18n.t(key, value)
 })
 Vue.use(TreeTable)
 Vue.use(VOrgTree)
+Vue.prototype.$axios = axios;
+Vue.prototype.$api = api;
 /**
  * @description 注册admin内置插件
  */
