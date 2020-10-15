@@ -33,8 +33,8 @@ export default {
   data () {
     return {
       formValidate: {
-        username: '',//enterprise
-        password: '',//password
+        username: 'enterprise',//enterprise
+        password: 'password',//password
         identity:'',
         variety: '',
       },
@@ -90,6 +90,9 @@ export default {
     login() {
       this.$api.login.login(this.formValidate).then((res) => {
         console.log(res,'getRoles()getRoles()')
+        if(res){
+          this.$router.push({name: 'home'});
+        }
       });
     },
 
