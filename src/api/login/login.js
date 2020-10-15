@@ -13,7 +13,11 @@ const login = {
   },
   //可能是下拉
   roles(params) {
-    return axios.get(`${base.sq}//login/user/roles`, params);
+    return axios.get(`${base.sq}/login/user/roles`, params);
   },
+  //企业种类
+  variety(params) {
+    return axios.get(`${base.sq}/login/enterprise/roles`, params);
+  }
 };
 export default login;
