@@ -4,6 +4,7 @@
 
 <template>
     <div class="login">
+      <div class="login_bj"></div>
         <div class="login-con">
             <Card icon="log-in" :bordered="false">
                 <div class="form-con">
