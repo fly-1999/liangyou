@@ -11,5 +11,9 @@ const login = {
   login(params) {
     return axios.post(`${base.sq}/login`, qs.stringify(params));
   },
+  //可能是下拉
+  roles(params) {
+    return axios.get(`${base.sq}//login/user/roles`, params);
+  },
 };
 export default login;
