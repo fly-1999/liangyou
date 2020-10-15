@@ -31,7 +31,7 @@ export default [
         name: '主页',
         meta: {
           title: '主页',
-          notCache: true,
+          notCache: true
         },
         component: () => import('@/view/home')
       }
@@ -52,7 +52,7 @@ export default [
         name: '信息采集',
         meta: {
           title: '信息采集',
-          notCache: true,
+          notCache: true
         },
         component: () => import('@/view/information')
       }
@@ -73,7 +73,7 @@ export default [
         name: '预警防控',
         meta: {
           title: '预警防控',
-          notCache: true,
+          notCache: true
         },
         component: () => import('@/view/earlyWarning')
       }
@@ -94,7 +94,7 @@ export default [
         name: '质量溯源',
         meta: {
           title: '质量溯源',
-          notCache: true,
+          notCache: true
         },
         component: () => import('@/view/qualityTraceability')
       }
@@ -115,7 +115,7 @@ export default [
         name: '综合服务',
         meta: {
           title: '综合服务',
-          notCache: true,
+          notCache: true
         },
         component: () => import('@/view/service')
       }
@@ -136,7 +136,7 @@ export default [
         name: '系统设置',
         meta: {
           title: '系统设置',
-          notCache: true,
+          notCache: true
         },
         component: () => import('@/view/setting')
       }
