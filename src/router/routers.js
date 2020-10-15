@@ -76,7 +76,7 @@ export default [
           notCache: true
         },
         component: () => import('@/view/earlyWarning')
-      }
+      },
     ]
   },
   {
@@ -142,6 +142,25 @@ export default [
       }
     ]
   },
+  // {
+  //   path: '/cloud-platform',
+  //   name: 'cloud-platform',
+  //   meta: {
+  //     hideInMenu: true,
+  //     notCache: true,
+  //   },
+  //   children: [
+  //     {
+  //       path: '/cloud-platform',
+  //       name: '粮油食品供应链云平台',
+  //       meta: {
+  //         title: '粮油食品供应链云平台',
+  //         notCache: true
+  //       },
+  //       component: () => import('@/view/earlyWarning/component/cloud-platform')
+  //     },
+  //   ]
+  // },
   {
     path: '/401',
     name: 'error_401',
