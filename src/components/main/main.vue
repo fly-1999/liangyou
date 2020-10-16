@@ -37,7 +37,7 @@
                     />
                 </header-bar>
             </Header>
-            <div class="content">
+            <div class="content" :class="{'content-main': this.$route.meta.title === '主页'}">
                 <router-view />
             </div>
         </Layout>
