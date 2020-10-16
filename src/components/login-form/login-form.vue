@@ -1,7 +1,7 @@
 <template>
   <div class="login_from">
     <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" @keydown.enter.native="handleSubmit">
-      <FormItem prop="identity">
+      <FormItem prop="">
         <Select v-model="formValidate.identity" size="large" placeholder="请选择用户名类型" @on-change="obtainValue" >
           <Option v-for="(item,key)  in identityList" :value="item.id+''" :key="key">{{ item.desc }}</Option>
         </Select>

@@ -126,13 +126,15 @@ export default {
             this.collapsed = state;
         },
         goOut() {
-          this.$Modal.warning({
+          this.$Modal.confirm({
             title: '退出登录',
             content: '是否退出登录？',
             okText:'确定',
             cancelText:'取消',
             onOk () {
-              console.log('确定')
+              this.$api.login.logout().then((res) => {
+                this.$router.push({name: 'login'});
+              });
             },
           })
 
