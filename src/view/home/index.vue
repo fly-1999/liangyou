@@ -80,28 +80,28 @@
           </div>
           <div class="home-show-content home-show-weather-content">
             <div class="home-show-weather-data">
-              <img :src="require('@/assets/images/main/weather/sun.png')" alt="" class="home-show-weather-data-img">
+              <img :src="require(`@/assets/images/main/weather/${weatherData.weatherNow.icon}.png`)" alt="" class="home-show-weather-data-img">
               <div class="home-show-weather-data-words">
-                <div class="home-show-weather-data-words-number">23℃</div>
-                <div class="home-show-weather-data-place">ESHHS盘锦</div>
+                <div class="home-show-weather-data-words-number">{{weatherData.weatherNow.temp}}℃</div>
+                <div class="home-show-weather-data-words-place">{{place}}</div>
               </div>
             </div>
             <div class="home-show-weather-date">
               <div class="home-show-weather-date-alldate">
                 <p class="home-show-weather-date-title">日期</p>
-                <p class="home-show-weather-date-value">2020/8/28</p>
+                <p class="home-show-weather-date-value">{{weatherData.weatherNow.time}}</p>
               </div>
               <div class="home-show-weather-date-day">
                 <p class="home-show-weather-date-title">周期</p>
-                <p class="home-show-weather-date-value">星期四</p>
+                <p class="home-show-weather-date-value">{{weatherData.weatherNow.day}}</p>
               </div>
               <div class="home-show-weather-date-speed">
                 <p class="home-show-weather-date-title">风速</p>
-                <p class="home-show-weather-date-value">微风</p>
+                <p class="home-show-weather-date-value">{{weatherData.weatherNow.windScale}}</p>
               </div>
             </div>
           </div>
-          <WeatherChart/>
+          <WeatherChart :weather="dailyTemp"/>
         </div>
       </div>
     </div>
@@ -110,6 +110,7 @@
 import HomeShowChart from './components/HomeShowChart'
 import YearChart from './components/YaerChart'
 import WeatherChart from './components/weatherChart'
+import {weather} from '@/api/weather/weather.js'
 export default {
   name: 'Main',
   components: {
@@ -118,7 +119,62 @@ export default {
     WeatherChart
   },
   data () {
-    return {}
+    return {
+      place: '盘锦',
+      weatherData: {
+        weatherNow: {},
+        weather7d: []
+      }
+    }
+  },
+  computed: {
+    dailyTemp() {
+      if(this.weatherData.weather7d.length === 0) {
+        return {}
+      }
+      let result = {}
+      let maxArr = []
+      let minArr = []
+      let weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+      let day = new Date(this.weatherData.weather7d[0].fxDate).getDay()
+      result.day = [...weeks.slice(day) , ...weeks.slice(0, day)]
+      this.weatherData.weather7d.forEach(item => {
+        maxArr.push(item.tempMax)
+        minArr.push(item.tempMin)
+      })
+      result.data = [maxArr, minArr]
+      return result
+    }
+  },
+  created() {
+    weather.getWeatherNowByName({name: this.place}).then(res => {
+      let weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+      res.now.time = res.now.obsTime.slice(0, 10)
+      res.now.day = weeks[new Date(res.now.time).getDay()]
+      if(res.now.windScale === 0) {
+        res.now.windScale = '无风'
+      }else if(res.now.windScale > 0 && res.now.windScale < 4) {
+        res.now.windScale = '微风'
+      }else if(res.now.windScale >= 4 && res.now.windScale <= 5) {
+        res.now.windScale = '清风'
+      }else {
+        res.now.windScale = '强风'
+      }
+      this.weatherData.weatherNow = res.now
+    }).catch(err => {
+      console.log(err)
+    })
+    weather.getWeather7dByName({name: this.place}).then(res => {
+      this.weatherData.weather7d = res.daily.map(item => ({
+        fxDate: item.fxDate,
+        tempMax: item.tempMax,
+        tempMin: item.tempMin,
+        windScaleDay: item.windScaleDay,
+        humidity: item.humidity
+      }))
+    }).catch(err => {
+      console.log(err)
+    })
   },
   methods: {}
 }

@@ -5,23 +5,47 @@
 <script>
 import echarts from 'echarts'
 export default {
+  props:{
+    weather: Object
+  },
+  data() {
+    return({
+      myChart: null
+    })
+  },
+  methods: {
+    setChart(data, dom = this.myChart) {
+      if(this.weather.data && dom) {
+        dom.hideLoading()
+        dom.setOption({
+          xAxis: {
+            data: this.weather.day
+          },
+          series: [
+            {data: this.weather.data[0]},
+            {data: this.weather.data[1]}
+          ]
+        })
+      }
+    }
+  },
   mounted () {
     var myChart = echarts.init(this.$refs.chart)
+    myChart.showLoading()
     myChart.setOption({
       xAxis: {
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+        data: [],
         axisLine: { show: false },
         axisTick: { show: false },
         axisLabel: {
           color: '#999999',
           fontFamily: 'Adobe Heiti Std R',
-          fontSize: 12
+          fontSize: 12,
+          interval: 0
         }
       },
       yAxis: {
         type: 'value',
-        min: 1,
-        max: 6,
         axisLine: { show: false },
         axisTick: { show: false },
         axisLabel: {
@@ -61,8 +85,8 @@ export default {
         {
           name: '最高',
           type: 'line',
+          data: [],
           smooth: true,
-          data: [4, 2, 3, 6, 5, 3, 2],
           showSymbol: false,
           itemStyle: {
             color: '#1BBC9B'
@@ -76,8 +100,8 @@ export default {
         {
           name: '最低',
           type: 'line',
+          data: [],
           smooth: true,
-          data: [3, 1, 2, 5, 3, 4, 1],
           symbol: 'none',
           itemStyle: {
             color: '#B69DFA'
@@ -88,6 +112,13 @@ export default {
         }
       ]
     })
+    this.myChart = myChart
+    this.setChart(this.weather, myChart)
+  },
+  watch: {
+    weather() {
+      this.setChart(this.weather)
+    }
   }
 }
 </script>

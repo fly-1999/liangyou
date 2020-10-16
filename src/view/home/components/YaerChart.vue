@@ -33,7 +33,10 @@ export default {
           name: '销售额',
           type: 'value',
           min: 0,
-          max: 90,
+          max: function (value) {
+            console.log(value)
+            return Math.ceil(value.max/10) * 10;
+          },
           splitNumber: 10,
           boundaryGap: ['40px', '40px'],
           axisLabel: {
@@ -58,7 +61,10 @@ export default {
           name: '扫码次数',
           type: 'value',
           min: 0,
-          max: 90,
+          max: function (value) {
+            console.log(value)
+            return Math.ceil(value.max/10) * 10;
+          },
           splitNumber: 10,
           boundaryGap: ['40px', '40px'],
           axisLabel: {
@@ -99,6 +105,7 @@ export default {
           type: 'bar',
           barWidth: 13,
           data: this.data[0],
+          yAxisIndex: 0,
           clip: false,
           label: {
             show: true,
@@ -123,6 +130,7 @@ export default {
           type: 'bar',
           barWidth: 13,
           data: this.data[1],
+          yAxisIndex: 1,
           clip: false,
           label: {
             show: true,
@@ -146,6 +154,7 @@ export default {
           name: '溯源次数',
           type: 'line',
           data: this.data[2],
+          yAxisIndex: 1,
           symbol: 'none',
           lineStyle: {
             color: '#1E88E5'
