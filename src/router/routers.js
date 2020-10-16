@@ -29,11 +29,31 @@ export default [
       {
         path: '/home',
         name: '主页',
+        component: () => import('@/view/home'),
         meta: {
           title: '主页',
           notCache: true
         },
-        component: () => import('@/view/home')
+        children: [
+          {
+            name: '主页',
+            path: '/',
+            component: () => import('@/view/home/page/main'),
+            meta: {
+              title: '主页',
+              notCache: true
+            }
+          },
+          {
+            name: '天气',
+            path: 'weather',
+            meta: {
+              title: '天气',
+              notCache: true
+            },
+            component: () => import('@/view/home/page/weather')
+          }
+        ]
       }
     ]
   },

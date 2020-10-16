@@ -1,0 +1,54 @@
+@fontFamily: Adobe Heiti Std R;
+@normalFontColor: #999999;
+.clearfix() {
+  zoom:1;
+  &::before, &::after {
+      Content:"";
+      clear:both;
+      display: block;
+  }
+}
+.weather {
+  min-width: 1509px;
+  width: 100%;
+}
+.weather-header {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  line-height: 40px;
+  .clearfix();
+  &-title {
+    float: left;
+    font: 30px @fontFamily;
+    color: #1E87E5;
+  }
+  &-button {
+    float: right;
+    padding: 7.5px 23px;
+    font: 15px @fontFamily;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+}
+.weather-content {
+  margin: 15px 0;
+  width: 100%;
+  height: 488px;
+  .clearfix();
+  &-now {
+    position: relative;
+    box-sizing: border-box;
+    padding: 1.3% 2% 0;
+    float: left;
+    width: 19%;
+    height: 100%;
+    background-color: #fff;
+    &-img {
+      margin: 0 auto;
+      display: block;
+      width: 225px;
+      height: 200px;
+    }
+  }
+}
