@@ -50,11 +50,50 @@ export default [
       {
         path: '/information',
         name: '信息采集',
+        redirect: '/information/information-message',
         meta: {
           title: '信息采集',
           notCache: true
         },
-        component: () => import('@/view/information')
+        component: () => import('@/view/information/information.vue'),
+        children:[
+          {
+            path: '/information/information-edit',
+            name: '编辑',
+            meta: {
+              title: '编辑',
+              notCache: true,
+            },
+            component: () => import('@/view/information/content/information-edit/information-edit.vue')
+          },
+          {
+            path: '/information/information-message',
+            name: '基地信息',
+            meta: {
+              title: '基地信息',
+              notCache: true
+            },
+            component: () => import('@/view/information/content/information-message/information-message.vue')
+          },
+          {
+            path: '/information/information-offer',
+            name: '供应链',
+            meta: {
+              title: '供应链',
+              notCache: true
+            },
+            component: () => import('@/view/information/content/information-offer/information-offer.vue')
+          },
+          {
+            path: '/information/information-son',
+            name: '子系统',
+            meta: {
+              title: '子系统',
+              notCache: true
+            },
+            component: () => import('@/view/information/content/information-son/information-son.vue')
+          }
+        ]
       }
     ]
   },

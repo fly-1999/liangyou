@@ -1,10 +1,10 @@
 <template>
-  <div class="wrapper">信息采集</div>
+  <div></div>
 </template>
 
 <script>
   export default {
-    name: "index"
+    name: "information-son"
   }
 </script>
 
