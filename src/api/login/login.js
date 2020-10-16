@@ -18,6 +18,10 @@ const login = {
   //企业种类
   variety(params) {
     return axios.get(`${base.sq}/login/enterprise/roles`, params);
+  },
+  //登出
+  logout(params){
+    return axios.get(`${base.sq}/logout`, params);
   }
 };
 export default login;

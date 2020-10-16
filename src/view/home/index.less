@@ -1,48 +1,69 @@
 @fontFamily: Adobe Heiti Std R;
 @normalFontColor: #999999;
+.clearfix() {
+    zoom:1;
+    &::before, &::after {
+        Content:"";
+        clear:both;
+        display: block;
+    }
+}
 .home {
-    display: flex;
-    flex-direction: column;
+    min-width: 1509px;
+    border-spacing: 15px;
+    width: 100%;
 }
 .home-data {
-    display: flex;
-    justify-content: space-between;
     &-day-batch, &-day-warn, &-month-batch, &-month-warn {
-        padding: 30px;
+        padding: 1%;
         box-sizing: border-box;
-        width: 382px;
         height: 170px;
         background-color: #fff;
+        cursor: pointer;
     }
     &-header {
         padding-bottom: 25px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        .clearfix();
         &-title {
+            float: left;
             font: 19px @fontFamily;
             color: @normalFontColor;
+            line-height: 46px;
         }
         &-day-batch-number {
+            float: right;
             font: 36px @fontFamily;
             color: #AA56E7FF;
+            vertical-align: middle;
+            line-height: 46px;
         }
         &-day-warn-number {
+            float: right;
             font: 36px @fontFamily;
             color: #1BBC9BFF;
+            line-height: 46px;
         }
         &-month-batch-number{
+            float: right;
             font: 36px @fontFamily;
             color: #4E9AE6FF;
+            line-height: 46px;
         }
         &-month-warn-number {
+            float: right;
             font: 36px @fontFamily;
             color: #F06E7FFF;
+            line-height: 46px;
         }
     }
     &-content {
-        display: flex;
-        justify-content: space-between;
+        .clearfix();
+        > div:nth-child(1) {
+            float: left;
+        }
+        > div:nth-child(2) {
+            float: right;
+        }
         &-rate {
             font: 16px @fontFamily;
             color: @normalFontColor;
@@ -56,52 +77,69 @@
     }
 }
 .home-show {
-    display: flex;
     margin-top: 25px;
     height: 100%;
-    min-height: 620px;
-    justify-content: space-between;
     &-header {
-        display: flex;
-        justify-content: space-between;
+        .clearfix();
         align-items: center;
         padding: 0 30px;
-        height: 80px;
+        height: 68px;
         border-bottom: 1px solid #E6E6E6;
         &-title {
+            float: left;
             font: 30px @fontFamily;
             color: #1E88E5;
-        } 
+            line-height: 68px;
+        }
+        &-button {
+            float: right;
+            padding: 0 5px;
+            cursor: pointer;
+            line-height: 68px;
+            > img {
+                vertical-align: middle;
+            }
+        }
     }
     &-content {
         padding: 30px;
         box-sizing: border-box;
     }
     &-basic-data, &-statistics, &-weather {
-        height: 100%;
+        padding: 0;
         background-color: #fff;
     }
+    &-statistics {
+        width: 40%;
+    }
+    &-weather {
+        width: 20%;
+    }
     &-basic-data {
+        width: 30%;
         &-picture {
             display: block;
-            width: 323px;
+            width: 100%;
             height: 500px;
             background-color: #666;
         } 
     }
     &-weather-content {
+        position: relative;
         border-bottom: 1px solid #E6E6E6;
     }
     &-weather-data {
-        display: flex;
-        justify-content: space-between;
+        .clearfix();
         &-img {
+            float: left;
             display: block;
-            width: 225px;
+            width: 60%;
             height: 200px;
         }
         &-words {
+            float: right;
             padding: 30px 10px 0;
+            width: 30%;
             &-number {
                 font: 36px @fontFamily;
                 color: #333333;
@@ -116,11 +154,22 @@
         }
     }
     &-weather-date {
+        .clearfix();
         margin-top: 40px;
-        display: flex;
-        justify-content: space-around;
+        &-alldate, &-day, &-speed {
+            float: left;
+            width: 33%;
+            height: 43px;
+            box-sizing: border-box;
+        } 
+        &-speed {
+            width: 25%;
+        }
+        &-alldate {
+            width: 45%;
+        }
         &-day {
-            padding: 0 20px;
+            width: 30%;
             border-left: 1px solid #E5E5E5;
             border-right: 1px solid #E5E5E5;
         }
@@ -135,4 +184,12 @@
             text-align: center;
         }
     }
+}
+.demo-spin-icon-load{
+    animation: ani-demo-spin 1s linear infinite;
+}
+@keyframes ani-demo-spin {
+    from { transform: rotate(0deg);}
+    50%  { transform: rotate(180deg);}
+    to   { transform: rotate(360deg);}
 }

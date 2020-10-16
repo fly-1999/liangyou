@@ -45,8 +45,9 @@ const errorHandle = (status, other) => {
 var instance = axios.create({
   timeout: 1000 * 60
 });
-// instance.defaults.withCredentials=true
+// instance.defaults.withCredentials = true;
 // 设置post请求头
+
 instance.defaults.headers.post['Content-Type'] =
   'application/x-www-form-urlencoded;charset=UTF-8';
 /**
