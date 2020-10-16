@@ -8,7 +8,8 @@
       <div :class="[item.path===prepath?'information-clicked':'']" v-for="(item,index) in tab" @click="shows(item.path)">{{item.name}}</div>
     </div>
     <!--information二级路由-->
-    <router-view/>
+    <keep-alive><router-view/></keep-alive>
+
   </div>
 </template>
 

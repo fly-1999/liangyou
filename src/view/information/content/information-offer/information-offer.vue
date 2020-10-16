@@ -53,34 +53,6 @@
       </div>
       <div>
         <span>收购</span>
-        <span>
-              <img v-if="true" src="../../../../assets/images/information/information-arrow1.svg"/>
-              <img v-else src="../../../../assets/images/information/information-arrow2.svg"/>
-        </span>
-      </div>
-      <div>
-        <span>收购</span>
-        <span>
-              <img v-if="true" src="../../../../assets/images/information/information-arrow1.svg"/>
-              <img v-else src="../../../../assets/images/information/information-arrow2.svg"/>
-        </span>
-      </div>
-      <div>
-        <span>收购</span>
-        <span>
-              <img v-if="true" src="../../../../assets/images/information/information-arrow1.svg"/>
-              <img v-else src="../../../../assets/images/information/information-arrow2.svg"/>
-        </span>
-      </div>
-      <div>
-        <span>收购</span>
-        <span>
-              <img v-if="true" src="../../../../assets/images/information/information-arrow1.svg"/>
-              <img v-else src="../../../../assets/images/information/information-arrow2.svg"/>
-        </span>
-      </div>
-      <div>
-        <span>收购</span>
       </div>
     </div>
     <!--批次-->
@@ -101,6 +73,69 @@
               <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
             </th>
           </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
+        <tr>
+          <th>sdad </th>
+          <th>
+            <span v-if="searchedit">eeee</span>
+            <input v-else placeholder="eeee" @blur="upperCase" @focus="onCase"/>
+          </th>
+        </tr>
         <tr>
           <th>sdad </th>
           <th>
