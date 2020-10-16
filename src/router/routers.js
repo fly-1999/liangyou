@@ -138,8 +138,32 @@ export default [
           title: '系统设置',
           notCache: true
         },
-        component: () => import('@/view/setting')
-      }
+        component: () => import('@/view/setting'),
+        // 重定向到基本设置
+        redirect:'/setting/setingList',
+        // 基本设置的子路由
+        children:[
+         {  
+           path: '/setting/setingList',
+           name: '基本设置',
+           meta: {
+             title: '中南地区稻米供应链重金属风险快速预警及防控系统',
+             notCache: true
+           },
+           component: () => import('@/view/setting/setingList')
+         },
+         {  
+           path: '/setting/setingUser',
+           name: '用户设置',
+           meta: {
+             title: '中南地区稻米供应链重金属风险快速预警及防控系统',
+             notCache: true
+           },
+           component: () => import('@/view/setting/setingUser')
+         },
+        ]
+      },
+     
     ]
   },
   // {
