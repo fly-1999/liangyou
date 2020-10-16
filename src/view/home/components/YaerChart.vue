@@ -34,7 +34,6 @@ export default {
           type: 'value',
           min: 0,
           max: function (value) {
-            console.log(value)
             return Math.ceil(value.max/10) * 10;
           },
           splitNumber: 10,
@@ -62,7 +61,6 @@ export default {
           type: 'value',
           min: 0,
           max: function (value) {
-            console.log(value)
             return Math.ceil(value.max/10) * 10;
           },
           splitNumber: 10,

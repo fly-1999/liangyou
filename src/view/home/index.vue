@@ -1,7 +1,7 @@
 <template>
-    <div class="home">
-      <div class="home-data">
-        <div class="home-data-day-batch">
+    <table class="home">
+      <tr class="home-data">
+        <td class="home-data-day-batch">
           <div class="home-data-header">
             <div class="home-data-header-title">当天批次数量</div>
             <div class="home-data-header-day-batch-number">72批</div>
@@ -13,8 +13,8 @@
               <p class="home-data-content-words">相比上月变化</p>
             </div>
           </div>
-        </div>
-        <div class="home-data-day-warn">
+        </td>
+        <td class="home-data-day-warn">
           <div class="home-data-header">
             <div class="home-data-header-title">当前预警次数</div>
             <div class="home-data-header-day-warn-number">30次</div>
@@ -26,8 +26,8 @@
               <p class="home-data-content-words">相比上月变化</p>
             </div>
           </div>
-        </div>
-        <div class="home-data-month-batch">
+        </td>
+        <td class="home-data-month-batch">
           <div class="home-data-header">
             <div class="home-data-header-title">本月批次数量</div>
             <div class="home-data-header-month-batch-number">890批</div>
@@ -39,8 +39,8 @@
               <p class="home-data-content-words">相比上月变化</p>
             </div>
           </div>
-        </div>
-        <div class="home-data-month-warn">
+        </td>
+        <td class="home-data-month-warn">
           <div class="home-data-header">
             <div class="home-data-header-title">本月预警次数</div>
             <div class="home-data-header-month-warn-number">712次</div>
@@ -52,10 +52,10 @@
               <p class="home-data-content-words">相比上月变化</p>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="home-show">
-        <div class="home-show-basic-data">
+        </td>
+      </tr>
+      <tr class="home-show">
+        <td class="home-show-basic-data">
           <div class="home-show-header">
             <div class="home-show-header-title">基本信息</div>
             <div class="home-show-header-button"><img :src="require('@/assets/images/main/button.png')" alt=""></div>
@@ -63,24 +63,24 @@
           <div class="home-show-content">
             <img src="" alt="" class="home-show-basic-data-picture">
           </div>
-        </div>
-        <div class="home-show-statistics">
+        </td>
+        <td class="home-show-statistics" colspan="2">
           <div class="home-show-header">
             <div class="home-show-header-title">年度统计</div>
             <div class="home-show-header-button"><img :src="require('@/assets/images/main/button.png')" alt=""></div>
           </div>
           <div class="home-show-content">
-            <YearChart style="height: 500px; width: 753px" :data="[[47, 35, 62, 36, 43, 82, 51],[29, 27, 48, 26, 33, 73, 51],[47, 35, 62, 36, 43, 82, 51]]"/>
+            <YearChart style="height: 500px; width: 100%" :data="[[47, 35, 62, 36, 43, 82, 51],[29, 27, 48, 26, 33, 73, 51],[47, 35, 62, 36, 43, 82, 51]]"/>
           </div>
-        </div>
-        <div class="home-show-weather">
+        </td>
+        <td class="home-show-weather">
           <div class="home-show-header">
             <div class="home-show-header-title">环境监测</div>
             <div class="home-show-header-button"><img :src="require('@/assets/images/main/button.png')" alt=""></div>
           </div>
           <div class="home-show-content home-show-weather-content">
             <div class="home-show-weather-data">
-              <img :src="require(`@/assets/images/main/weather/${weatherData.weatherNow.icon}.png`)" alt="" class="home-show-weather-data-img">
+              <img :src="require(`@/assets/images/main/weather/${weatherData.weatherNow.icon || 999}.png`)" alt="" class="home-show-weather-data-img">
               <div class="home-show-weather-data-words">
                 <div class="home-show-weather-data-words-number">{{weatherData.weatherNow.temp}}℃</div>
                 <div class="home-show-weather-data-words-place">{{place}}</div>
@@ -102,9 +102,9 @@
             </div>
           </div>
           <WeatherChart :weather="dailyTemp"/>
-        </div>
-      </div>
-    </div>
+        </td>
+      </tr>
+    </table>
 </template>
 <script>
 import HomeShowChart from './components/HomeShowChart'
